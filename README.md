@@ -16,20 +16,20 @@ Our use case is *Arabidopsis thaliana* and we prepare the necessary input files 
 >Cell (2016), 166(2) 481-91. https://doi.org/10.1016/j.cell.2016.05.063
 
 
-#input files for Arabidopsis
+# Input files for Arabidopsis
 
 **TAIR10 genome directory at TAIR**
 
 https://www.arabidopsis.org/download/index-auto.jsp?dir=%2Fdownload_files%2FGenes%2FTAIR10_genome_release%2FTAIR10_chromosome_files
 
-file: TAIR10_chr_all.fas.gz
+file: **TAIR10_chr_all.fas.gz**
 
 
 **VCF from 1001 genomes project**
 
 https://1001genomes.org/data/GMI-MPI/releases/v3.1/
 
-file: 1001genomes_snp-short-indel_only_ACGTN.vcf.gz
+file: **1001genomes_snp-short-indel_only_ACGTN.vcf.gz**
 
 We preprocess the VCF file to split multiallelic variants into multiple lines with 
 ```
