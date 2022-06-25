@@ -1,0 +1,24 @@
+#mamba env create --file erlich-dependencies.yml
+name: erlich
+channels:
+  - defaults
+  - bioconda
+  - conda-forge
+  - r
+dependencies:
+  - python=2.7*
+  - bwa
+  - samtools
+  - bcftools
+  - poretools
+  - numpy
+  - scipy
+  - matplotlib
+  - pysam
+  - r-hexbin
+  - r-RColorBrewer
+  - r-gplots
+  - r-naturalsort
+  - r-optparse
+  
+  #noticed that after above install, bcftools was missing the 'gsl' library ('libgsl.so.25'), although 'gsl' was seemingly installed during env creation. 'conda install gsl' in the environment fixed the issue.
