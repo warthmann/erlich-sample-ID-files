@@ -1,6 +1,6 @@
 # erlich-sample-ID-files
 
-Here we provide scripts to prepare the input files needed by the [TeamErlich/personal-identification-pipeline](https://github.com/TeamErlich/personal-identification-pipeline)
+Here we provide scripts to prepare the input files needed by the [TeamErlich/personal-identification-pipeline](https://github.com/TeamErlich/personal-identification-pipeline). We prepare the necessary input files from a multi-sample VCF file.
 
 TeamErlich published a software pipeline to quickly (re-)identify samples from Oxford Nanopore data given a sample database: https://github.com/TeamErlich/personal-identification-pipeline
 
@@ -11,12 +11,14 @@ TeamErlich published a software pipeline to quickly (re-)identify samples from O
 
 # Input files for Arabidopsis
 
-Our use case is *Arabidopsis thaliana* and we prepare the necessary input files from the variants identified in the 1001genomes project. 
+Our use case is *Arabidopsis thaliana* and 1,135 sequenced accessions from the [1001genomes project](https://1001genomes.org/). 
 
 >1001 Genomes Consortium
 >1,135 Genomes Reveal the Global Pattern of Polymorphism in *Arabidopsis thaliana*
 >Cell (2016), 166(2) 481-91. https://doi.org/10.1016/j.cell.2016.05.063
 
+
+ The 1001genomes project provides a multi-sample VCF file that contains variants for 1,135 Arabidospis accessions called against the TAIR10 genome.
 
 **TAIR10 genome directory at TAIR**
 
@@ -36,3 +38,17 @@ We preprocess the VCF file to split multiallelic variants into multiple lines wi
 
 bcftools norm -m - <vcf file>
 ```
+
+Parse the resulting file for the genoypes and split into individual .txt files in 23andme format, one for each sample. The tasks is parallelised with gnu parallel. Adjust the number of threads to use in the script!
+```
+
+bash produce23andmefile.parallel.sh <file with list of samples names> <outputdirectory/> <input vcf/bcf>
+```
+
+Build a list of all variants, assign assign unique IDs, and augment the 23andme files by adding the ID to each variant. 
+```
+
+python3 generate-dict-and-SNP-IDs.py 
+```
+
+
