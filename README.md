@@ -45,7 +45,7 @@ Parse the resulting file for the genoypes and split into individual .txt files i
 bash produce23andmefile.parallel.sh <file with list of samples names> <outputdirectory/> <input vcf/bcf>
 ```
 
-Build a list of all variants, assign assign unique IDs, and augment the 23andme files by adding the ID to each variant. 
+Build a list of all variants, assign assign unique IDs, and augment the 23andme files by adding the ID to each variant. Adjust paths and filenames in the script!
 ```
 
 python3 generate-dict-and-SNP-IDs.py 
