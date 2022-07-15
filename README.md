@@ -1,6 +1,6 @@
 # erlich-sample-ID-files
 
-Here we provide scripts to prepare the input files needed by the [TeamErlich/personal-identification-pipeline](https://github.com/TeamErlich/personal-identification-pipeline). We prepare the necessary input files from a multi-sample VCF file.
+Here we provide scripts to prepare the input files needed by the [TeamErlich/personal-identification-pipeline](https://github.com/TeamErlich/personal-identification-pipeline) from a multi-sample VCF file.
 
 TeamErlich published a software pipeline to quickly (re-)identify samples from Oxford Nanopore data given a sample database: https://github.com/TeamErlich/personal-identification-pipeline
 
@@ -39,13 +39,13 @@ We preprocess the VCF file to split multiallelic variants into multiple lines wi
 bcftools norm -m - <vcf file>
 ```
 
-Parse the resulting file for the genoypes and split into individual .txt files in 23andme format, one for each sample. The tasks is parallelised with gnu parallel. Adjust the number of threads to use in the script!
+Parse the resulting file for the genoypes and split into individual .txt files in *23andme* format, one for each sample. The tasks is parallelised with gnu parallel. Adjust the number of threads in the script!
 ```
 
-bash produce23andmefile.parallel.sh <file with list of samples names> <outputdirectory/> <input vcf/bcf>
+bash produce23andmefile.parallel.sh <file with list of sample names> <output directory> <input vcf/bcf file>
 ```
 
-Build a list of all variants, assign assign unique IDs, and augment the 23andme files by adding the ID to each variant. Adjust paths and filenames in the script!
+Build a list of all variants, assign unique IDs, and augment the 23andme files by adding the ID to each variant. Adjust paths and filenames in the script!
 ```
 
 python3 generate-dict-and-SNP-IDs.py 
