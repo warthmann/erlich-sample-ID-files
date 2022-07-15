@@ -51,4 +51,12 @@ Build a list of all variants, assign assign unique IDs, and augment the 23andme 
 python3 generate-dict-and-SNP-IDs.py 
 ```
 
+# Fast5 files for testing
+
+Sequencing data from a whole genome ONT (rapid) library of *Arabidopsis thaliana* on a Flongle
+```
+
+wget https://bss1innov1nafa1poc1.blob.core.windows.net/sample-container/Data-for-github/At-WGS.tar.xz
+```
+
 
